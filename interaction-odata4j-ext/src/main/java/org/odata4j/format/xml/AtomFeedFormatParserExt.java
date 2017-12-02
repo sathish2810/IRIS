@@ -360,7 +360,8 @@ public class AtomFeedFormatParserExt extends AtomFeedFormatParser {
             Matcher actionMatcher = actionPath.matcher(dsae.id);
             if (dsae.id.endsWith(")")) {
                 key = parseEntityKey(dsae.id);
-            } else if (actionMatcher.find() && !dsae.id.substring(0, actionMatcher.start()).endsWith("()")) {
+            } else if (actionMatcher.find() && dsae.id.endsWith("/aapopulate")) {
+                // TODO: Hard Coded "/aapopulate" needs to be revisited
                 key = parseEntityKey(dsae.id.substring(0, actionMatcher.start()));
             } else {
                 key = OEntityKey.infer(entitySet, props);
