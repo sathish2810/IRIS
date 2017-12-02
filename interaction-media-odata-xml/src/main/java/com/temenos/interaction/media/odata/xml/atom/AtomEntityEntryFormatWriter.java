@@ -199,7 +199,7 @@ public class AtomEntityEntryFormatWriter {
 	            writer.writeAttribute("title", link.getTitle());
 				if (embeddedResources != null && embeddedResources.get(link.getTransition()) != null) {
 					String embeddedAbsoluteId = link.getHref();
-					writeLinkInline(writer, metadata, link, embeddedResources.get(link.getTransition()), href, baseUri, embeddedAbsoluteId, updated);
+					writeLinkInline(writer, metadata, link, embeddedResources.get(link.getTransition()), link.getHref(), baseUri, embeddedAbsoluteId, updated);
 				}
 				String linkId = link.getLinkId();
 				if( linkId != null && linkId.length() > 0 ) {
@@ -255,7 +255,7 @@ public class AtomEntityEntryFormatWriter {
 				writer.endLink();
 				
 				for (EntityResource<Entity> entityResource : entities) {
-					writeEntityResource(writer, entityResource, baseUri, baseUri + entityResource.getEntityName() + "('" + entityResource.getEntity().getProperties().getProperty("Id").getValue().toString() + "')", updated);
+					writeEntityResource(writer, entityResource, baseUri, absoluteId, updated);
 				}
 				writer.endFeed();
 			}

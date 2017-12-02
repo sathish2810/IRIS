@@ -26,7 +26,6 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.ws.rs.core.MediaType;
@@ -355,17 +354,8 @@ public class AtomFeedFormatParserExt extends AtomFeedFormatParser {
 		    }
 		    // favor the key we just parsed.
 
-        OEntityKey key = null;
-        if (dsae.id != null) {
-            Matcher actionMatcher = actionPath.matcher(dsae.id);
-            if (dsae.id.endsWith(")")) {
-                key = parseEntityKey(dsae.id);
-            } else if (actionMatcher.find() && !dsae.id.substring(0, actionMatcher.start()).endsWith("()")) {
-                key = parseEntityKey(dsae.id.substring(0, actionMatcher.start()));
-            } else {
-                key = OEntityKey.infer(entitySet, props);
-            }
-        }
+        OEntityKey key = dsae.id != null
+                ? (dsae.id.endsWith(")") ? parseEntityKey(dsae.id) : OEntityKey.infer(entitySet, props)) : null;
 
 		    if (key == null) {
 		      key = entityKey;
