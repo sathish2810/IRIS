@@ -5,7 +5,7 @@
 	<groupId>com.temenos.interaction</groupId>
 	<artifactId>com.temenos.interaction.rimdsl.parent</artifactId>
 	<!-- You should change this and the MANIFEST.MF to your versioning scheme -->
-	<version>0.15.31</version>
+	<version>0.15.34</version>
 	<packaging>pom</packaging>
 	<name>com.temenos.interaction.rimdsl.RimDsl - Parent</name>
 
@@ -257,6 +257,26 @@
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
 					<version>${xtend-version}</version>
+					<dependencies>
+						<!-- The following dependencies are appropriate for Xtend 2.13
+	                         (as used with ODL Parent 3.1.1) -->
+	                    <dependency>
+	                        <groupId>org.eclipse.jdt</groupId>
+	                        <artifactId>org.eclipse.jdt.core</artifactId>
+	                        <version>3.12.2</version>
+	                    </dependency>
+	                    <dependency>
+	                        <groupId>org.eclipse.platform</groupId>
+	                        <artifactId>org.eclipse.core.runtime</artifactId>
+	                        <version>3.12.0</version>
+	                    </dependency>
+                        <!-- Workaround for https://github.com/eclipse/xtext/issues/1231 -->
+                        <dependency>
+                            <groupId>org.eclipse.platform</groupId>
+                            <artifactId>org.eclipse.equinox.common</artifactId>
+                            <version>3.8.0</version>
+                        </dependency>
+                    </dependencies>
 					<configuration>
 						<!-- need to prefix by basedir to generate to currently built module -->
 						<outputDirectory>${basedir}/xtend-gen</outputDirectory>

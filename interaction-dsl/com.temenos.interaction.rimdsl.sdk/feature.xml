@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="com.temenos.interaction.rimdsl.sdk"
 	label="RimDSL SDK Feature "
-	version="0.15.31">
+	version="0.15.34">
 	<plugin
 			id="com.temenos.interaction.rimdsl"
 			download-size="0"

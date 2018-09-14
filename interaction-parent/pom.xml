@@ -4,7 +4,7 @@
 
 	<groupId>com.temenos.interaction</groupId>
 	<artifactId>interaction-parent</artifactId>
-	<version>0.15.31</version>
+	<version>0.15.34</version>
 	<packaging>pom</packaging>
 	<name>interaction-parent</name>
 

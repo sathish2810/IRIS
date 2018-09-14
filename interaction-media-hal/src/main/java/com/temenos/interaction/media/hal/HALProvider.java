@@ -631,7 +631,6 @@ public class HALProvider implements MessageBodyReader<RESTResource>, MessageBody
 			 */
 			PushbackInputStream wrappedStream = new PushbackInputStream(entityStream);
 			int firstByte = wrappedStream.read();
-			uriInfo = new UriInfoImpl(uriInfo);
 			if ( firstByte == -1 ) {
 					// No data provided
 					return null;
